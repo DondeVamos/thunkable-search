@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Viewer</title>
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const query = urlParams.get('query');
+      
+      fetch(window.location.href)
+        .then(response => response.json())
+        .then(data => {
+          window.ReactNativeWebView.postMessage(JSON.stringify(data));
+        });
+    };
+  </script>
+</head>
+<body>
+  <h1>Data Viewer</h1>
+</body>
+</html>
